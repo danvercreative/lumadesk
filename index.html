@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LumaDesk | Lámpara LED multifuncional para tu escritorio</title>
+  <meta name="description" content="LumaDesk combina iluminación LED, altavoz Bluetooth y carga inalámbrica en un diseño compacto y moderno para tu escritorio.">
+  <meta name="robots" content="index,follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LumaDesk | 3 funciones. 1 solo dispositivo.">
+  <meta property="og:description" content="Ilumina tu espacio, escucha tu música y carga tu smartphone desde el mismo lugar.">
+  <meta property="og:image" content="assets/lumadesk-producto.jpg">
+  <meta property="og:url" content="https://TU-DOMINIO-AQUI.com/">
+  <meta name="theme-color" content="#08090c">
+  <!-- FAVICON: sustituye este data URI por tu favicon real si lo deseas. -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2308090c'/%3E%3Ctext x='50' y='66' text-anchor='middle' font-size='55' fill='%2300a8ff' font-family='Arial'%3EL%3C/text%3E%3C/svg%3E">
+
+  <style>
+    :root{
+      --bg:#08090c;
+      --bg-soft:#0e1117;
+      --card:#11151c;
+      --line:rgba(255,255,255,.09);
+      --text:#f7f9fc;
+      --muted:#a7afbd;
+      --blue:#00a8ff;
+      --blue-2:#006eff;
+      --max:1180px;
+      --radius:22px;
+      --shadow:0 24px 70px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg);color:var(--text);line-height:1.6;
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    button,a{ -webkit-tap-highlight-color:transparent }
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .blue{color:var(--blue)}
+    .muted{color:var(--muted)}
+
+    header{
+      position:sticky;top:0;z-index:50;
+      background:rgba(8,9,12,.78);backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-size:1.25rem;font-weight:800;letter-spacing:-.04em}
+    .logo span{color:var(--blue)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      border:1px solid transparent;border-radius:999px;padding:13px 20px;
+      font-weight:800;font-size:.9rem;cursor:pointer;transition:.25s ease;
+    }
+    .btn-primary{background:var(--blue);color:#00111c;box-shadow:0 0 0 0 rgba(0,168,255,.35)}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(0,168,255,.22)}
+    .btn-ghost{border-color:var(--line);background:rgba(255,255,255,.03)}
+    .btn-ghost:hover{background:rgba(255,255,255,.07);transform:translateY(-2px)}
+
+    .hero{padding:100px 0 70px;position:relative}
+    .hero:before{
+      content:"";position:absolute;width:500px;height:500px;right:-180px;top:-100px;
+      background:radial-gradient(circle,rgba(0,168,255,.16),transparent 68%);
+      pointer-events:none;
+    }
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:70px;align-items:center}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
+      background:rgba(255,255,255,.035);padding:7px 12px;border-radius:999px;
+      color:#dbe4ee;font-size:.78rem;font-weight:700;margin-bottom:24px
+    }
+    .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 14px var(--blue)}
+    h1{font-size:clamp(2.8rem,7vw,5.7rem);line-height:.96;letter-spacing:-.065em;max-width:760px}
+    .hero-copy{font-size:1.08rem;color:var(--muted);max-width:600px;margin:26px 0 30px}
+    .price{font-size:2rem;font-weight:850;letter-spacing:-.04em;margin-bottom:24px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+    .product-frame{
+      min-height:500px;border:1px solid var(--line);border-radius:30px;
+      background:linear-gradient(145deg,#141923,#0b0d12);
+      box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
+      padding:24px;position:relative;overflow:hidden
+    }
+    .product-frame:before{content:"";position:absolute;width:320px;height:320px;border-radius:50%;background:rgba(0,168,255,.12);filter:blur(45px)}
+    .placeholder{
+      position:relative;z-index:1;width:100%;height:450px;border:1px dashed rgba(0,168,255,.55);
+      border-radius:22px;display:flex;align-items:center;justify-content:center;text-align:center;
+      color:#a9dfff;background:rgba(0,168,255,.025);padding:30px
+    }
+    .placeholder strong{display:block;color:#fff;font-size:1.1rem;margin-bottom:8px}
+    .placeholder small{color:var(--muted)}
+    .real-product{width:100%;height:450px;object-fit:contain;position:relative;z-index:1;border-radius:18px}
+
+    section{padding:95px 0}
+    .section-head{text-align:center;max-width:720px;margin:0 auto 48px}
+    .section-head h2{font-size:clamp(2rem,4vw,3.3rem);line-height:1.05;letter-spacing:-.05em}
+    .section-head p{color:var(--muted);margin-top:14px}
+    .benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      border:1px solid var(--line);border-radius:var(--radius);padding:30px;
+      transition:.25s ease
+    }
+    .card:hover{transform:translateY(-5px);border-color:rgba(0,168,255,.28)}
+    .icon{font-size:2rem;margin-bottom:22px}
+    .card h3{font-size:1.25rem;margin-bottom:9px}
+    .card p{color:var(--muted)}
+
+    .smart{background:var(--bg-soft);border-block:1px solid var(--line)}
+    .smart-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    .smart h2{font-size:clamp(2.2rem,5vw,4rem);line-height:1;letter-spacing:-.055em}
+    .smart-copy{color:var(--muted);font-size:1.05rem;margin:20px 0 28px;max-width:550px}
+    .feature-list{display:grid;gap:12px}
+    .feature-row{
+      display:flex;align-items:center;gap:16px;padding:18px;border:1px solid var(--line);
+      border-radius:16px;background:rgba(255,255,255,.025)
+    }
+    .feature-row .icon{font-size:1.4rem;margin:0}
+    .feature-row strong{display:block}
+    .feature-row span{font-size:.9rem;color:var(--muted)}
+
+    .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .info-card{padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card)}
+    .info-card h3{margin-bottom:8px}
+    .editable{border-left:3px solid var(--blue);padding-left:14px;color:#dfe7f0}
+    .editable code{color:var(--blue);font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+
+    .faq{max-width:820px;margin:auto}
+    details{border-bottom:1px solid var(--line);padding:22px 0}
+    summary{cursor:pointer;list-style:none;font-weight:800;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";color:var(--blue);font-size:1.3rem}
+    details[open] summary:after{content:"−"}
+    details p{color:var(--muted);padding-top:12px;max-width:700px}
+
+    .final-cta{
+      text-align:center;padding:110px 20px;
+      background:radial-gradient(circle at 50% 50%,rgba(0,168,255,.12),transparent 55%)
+    }
+    .final-cta h2{font-size:clamp(2.5rem,6vw,5rem);line-height:.98;letter-spacing:-.06em;margin-bottom:28px}
+
+    footer{border-top:1px solid var(--line);padding:38px 0 28px}
+    .footer-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
+    .footer-links{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted);font-size:.9rem}
+    .footer-links a:hover{color:#fff}
+    .footer-bottom{margin-top:35px;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;color:#68717e}
+
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.visible{opacity:1;transform:none}
+
+    @media(max-width:900px){
+      .hero-grid,.smart-grid{grid-template-columns:1fr;gap:45px}
+      .hero{padding-top:75px}
+      .product-frame{min-height:390px}
+      .placeholder,.real-product{height:340px}
+      .benefits{grid-template-columns:1fr}
+      .info-grid{grid-template-columns:1fr}
+      .smart-grid{gap:40px}
+    }
+    @media(max-width:600px){
+      .container{width:min(calc(100% - 28px),var(--max))}
+      .nav{height:68px}
+      .nav .btn{padding:10px 15px;font-size:.78rem}
+      .hero{padding:55px 0 35px}
+      h1{font-size:clamp(2.65rem,14vw,4rem)}
+      .hero-copy{font-size:1rem}
+      .hero-actions{display:grid;grid-template-columns:1fr}
+      .hero-actions .btn{width:100%}
+      section{padding:70px 0}
+      .product-frame{padding:14px;border-radius:22px;min-height:330px}
+      .placeholder,.real-product{height:290px}
+      .card,.info-card{padding:24px}
+      .footer-top{flex-direction:column}
+      .footer-links{gap:12px 16px}
+    }
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*:before,*:after{animation:none!important;transition:none!important}
+      .reveal{opacity:1;transform:none}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ============================================================
+       LumaDesk - CONFIGURACIÓN FÁCIL
+       Cambia SOLO estos valores primero:
+       1) PAYMENT_LINK
+       2) PRODUCT_IMAGE
+       3) PRODUCT_PRICE
+       4) SHIPPING_TIME
+       ============================================================ -->
+  <script>
+    const PAYMENT_LINK = "COLOQUE_AQUI_SEU_LINK";
+    const PRODUCT_IMAGE = "assets/lumadesk-producto.jpg"; // Sustituye por tu foto real
+    const PRODUCT_PRICE = "€39,90";
+    const SHIPPING_TIME = "COLOCA_AQUÍ_EL_PLAZO_REAL_DEL_PROVEEDOR";
+  </script>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#inicio" aria-label="LumaDesk inicio">Luma<span>Desk</span></a>
+      <a class="btn btn-primary payment-link" href="#" data-payment>Comprar ahora</a>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i></i> Tecnología para tu escritorio</div>
+          <h1>3 funciones.<br><span class="blue">1 solo dispositivo.</span></h1>
+          <p class="hero-copy">Ilumina tu espacio, escucha tu música y carga tu smartphone desde el mismo lugar.</p>
+          <div class="price" data-price>€39,90</div>
+          <div class="hero-actions">
+            <a class="btn btn-primary payment-link" href="#" data-payment>COMPRAR AHORA →</a>
+            <a class="btn btn-ghost" href="#beneficios">Ver características</a>
+          </div>
+        </div>
+
+        <div class="product-frame reveal" aria-label="Imagen del producto">
+          <!-- REEMPLAZA PRODUCT_IMAGE por la ruta de tu foto real. -->
+          <div class="placeholder" id="productPlaceholder">
+            <div>
+              <strong>IMAGEN DEL PRODUCTO</strong>
+              <small>Reemplaza <code>assets/lumadesk-producto.jpg</code> por la fotografía real del producto.</small>
+            </div>
+          </div>
+          <img id="productImage" class="real-product" alt="LumaDesk, lámpara multifuncional de escritorio" loading="lazy" hidden>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Todo lo que necesitas,<br><span class="blue">en un solo lugar.</span></h2>
+          <p>Una solución compacta para acompañar tu estudio, trabajo, descanso o setup.</p>
+        </div>
+        <div class="benefits">
+          <article class="card reveal">
+            <div class="icon">💡</div>
+            <h3>Iluminación LED</h3>
+            <p>Una luz cómoda para estudiar, trabajar o relajarte.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">🔊</div>
+            <h3>Altavoz Bluetooth</h3>
+            <p>Disfruta de tu música sin ocupar espacio adicional.</p>
+          </article>
+          <article class="card reveal">
+            <div class="icon">📱</div>
+            <h3>Carga inalámbrica</h3>
+            <p>Carga tu smartphone mientras trabajas o descansas.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="smart">
+      <div class="container smart-grid">
+        <div class="reveal">
+          <div class="eyebrow"><i></i> Diseño multifuncional</div>
+          <h2>Tu escritorio,<br><span class="blue">más inteligente.</span></h2>
+          <p class="smart-copy">LumaDesk combina iluminación, sonido y carga inalámbrica en un diseño compacto y moderno.</p>
+          <a class="btn btn-primary payment-link" href="#" data-payment>QUIERO MI LUMADESK →</a>
+        </div>
+
+        <div class="feature-list reveal">
+          <div class="feature-row">
+            <div class="icon">💡</div>
+            <div><strong>Iluminación LED</strong><span>Para estudiar, trabajar o relajarte.</span></div>
+          </div>
+          <div class="feature-row">
+            <div class="icon">🔊</div>
+            <div><strong>Altavoz Bluetooth</strong><span>Música sin añadir otro dispositivo al escritorio.</span></div>
+          </div>
+          <div class="feature-row">
+            <div class="icon">📱</div>
+            <div><strong>Carga inalámbrica</strong><span>Tu smartphone cargando mientras haces tus tareas.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="entrega">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Compra con la información<br><span class="blue">que necesitas.</span></h2>
+          <p>Completa estos datos con la información real de tu proveedor antes de publicar la tienda.</p>
+        </div>
+
+        <div class="info-grid">
+          <article class="info-card reveal">
+            <h3>🚚 Envío rápido en España</h3>
+            <p class="editable">Plazo estimado: <code id="shippingTime">COLOCA_AQUÍ_EL_PLAZO_REAL_DEL_PROVEEDOR</code></p>
+          </article>
+          <article class="info-card reveal">
+            <h3>🔒 Pago seguro</h3>
+            <p class="editable">Completa la compra mediante tu <code>LINK DE PAGO</code> real.</p>
+          </article>
+          <article class="info-card reveal">
+            <h3>📦 Información del producto</h3>
+            <p class="editable">Aquí debes añadir, si corresponde, especificaciones reales proporcionadas por tu proveedor.</p>
+          </article>
+          <article class="info-card reveal">
+            <h3>↩️ Devoluciones</h3>
+            <p class="editable">Sustituye este texto por tu política real de devoluciones antes de publicar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Preguntas frecuentes</h2>
+          <p>Respuestas preparadas para que puedas completar la información real.</p>
+        </div>
+        <div class="faq">
+          <details class="reveal">
+            <summary>¿Cómo puedo pagar?</summary>
+            <p>Serás dirigido a nuestro enlace de pago. <strong>IMPORTANTE:</strong> sustituye <code>PAYMENT_LINK</code> por tu enlace de pago real antes de publicar.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Cuánto tarda el envío?</summary>
+            <p>El plazo depende del proveedor y del destino. Sustituye <code>SHIPPING_TIME</code> por el plazo real y confirmado antes de publicar.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Puedo devolver el producto?</summary>
+            <p>Consulta nuestra política de devoluciones. <strong>IMPORTANTE:</strong> sustituye este texto por las condiciones reales y aplicables a tu tienda.</p>
+          </details>
+          <details class="reveal">
+            <summary>¿Es compatible con mi smartphone?</summary>
+            <p>La compatibilidad depende de las especificaciones reales del producto. Añade aquí la información confirmada por tu proveedor antes de publicar.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="container reveal">
+        <h2>Mejora tu espacio <span class="blue">hoy.</span></h2>
+        <a class="btn btn-primary payment-link" href="#" data-payment>QUIERO MI LUMADESK →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="logo" href="#inicio">Luma<span>Desk</span></a>
+          <p class="muted" style="margin-top:8px">Tecnología para un escritorio más funcional.</p>
+        </div>
+        <nav class="footer-links" aria-label="Enlaces del pie de página">
+          <!-- Sustituye estos href por tus páginas reales antes de publicar. -->
+          <a href="mailto:COLOCA_AQUI_TU_EMAIL">Contacto</a>
+          <a href="#entrega">Envíos</a>
+          <a href="#faq">Devoluciones</a>
+          <a href="POLITICA_PRIVACIDAD.html">Política de privacidad</a>
+          <a href="TERMINOS.html">Términos y condiciones</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">© <span id="year"></span> LumaDesk. Todos los derechos reservados.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Configura precio, imagen y plazo en el bloque CONFIGURACIÓN FÁCIL de arriba.
+    document.querySelectorAll("[data-price]").forEach(el => el.textContent = PRODUCT_PRICE);
+    document.getElementById("shippingTime").textContent = SHIPPING_TIME;
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Imagen: si la ruta existe, se muestra; si no, queda el placeholder.
+    const img = document.getElementById("productImage");
+    const placeholder = document.getElementById("productPlaceholder");
+    img.src = PRODUCT_IMAGE;
+    img.addEventListener("load", () => {
+      img.hidden = false;
+      placeholder.hidden = true;
+    });
+    img.addEventListener("error", () => {
+      img.hidden = true;
+      placeholder.hidden = false;
+    });
+
+    // Todos los botones de compra usan PAYMENT_LINK.
+    document.querySelectorAll("[data-payment]").forEach(link => {
+      link.href = PAYMENT_LINK;
+      if (PAYMENT_LINK === "COLOQUE_AQUI_SEU_LINK") {
+        link.addEventListener("click", e => {
+          e.preventDefault();
+          alert("Configura PAYMENT_LINK en el código antes de publicar la tienda.");
+        });
+      }
+    });
+
+    // Animaciones suaves al entrar en pantalla.
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.12});
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
