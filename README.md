@@ -1,1 +1,0 @@
-Adicionar loja LumaDesk
